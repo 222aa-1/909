@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>股票分析系统 - Web界面</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: white;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .search-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .search-box input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .search-box input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .search-box button {
+            padding: 12px 25px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .search-box button:hover {
+            background: #5a67d8;
+        }
+        
+        .quick-stocks {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .stock-btn {
+            padding: 8px 15px;
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .stock-btn:hover {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+        
+        .analysis-result {
+            display: none;
+        }
+        
+        .stock-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .info-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .info-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .info-value {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .positive {
+            color: #10b981;
+        }
+        
+        .negative {
+            color: #ef4444;
+        }
+        
+        .charts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .chart-container {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .chart-container h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .chart {
+            height: 300px;
+            width: 100%;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+        
+        .loading-spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .error {
+            background: #fee;
+            color: #c00;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #c00;
+        }
+        
+        @media (max-width: 768px) {
+            .charts {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📈 股票分析系统</h1>
+            <p>实时股票数据分析与可视化</p>
+        </div>
+        
+        <div class="card">
+            <h2>股票查询</h2>
+            <div class="search-box">
+                <input type="text" id="stockInput" placeholder="输入股票代码，如：AAPL, MSFT, TSLA..." value="AAPL">
+                <button onclick="analyzeStock()">分析股票</button>
+            </div>
+            
+            <div class="quick-stocks">
+                <p style="width: 100%; margin-bottom: 10px; color: #666;">热门股票：</p>
+                <div class="stock-btn" onclick="setStock('AAPL')">AAPL (苹果)</div>
+                <div class="stock-btn" onclick="setStock('MSFT')">MSFT (微软)</div>
+                <div class="stock-btn" onclick="setStock('TSLA')">TSLA (特斯拉)</div>
+                <div class="stock-btn" onclick="setStock('NVDA')">NVDA (英伟达)</div>
+                <div class="stock-btn" onclick="setStock('BABA')">BABA (阿里)</div>
+                <div class="stock-btn" onclick="setStock('JD')">JD (京东)</div>
+            </div>
+        </div>
+        
+        <div class="card analysis-result" id="resultCard">
+            <div class="loading" id="loading">
+                <div class="loading-spinner"></div>
+                <p>正在分析股票数据...</p>
+            </div>
+            
+            <div id="error" class="error" style="display: none;"></div>
+            
+            <div id="analysisContent" style="display: none;">
+                <h2 id="stockTitle">股票分析结果</h2>
+                
+                <div class="stock-info" id="stockInfo">
+                    <!-- 股票信息将通过JS动态填充 -->
+                </div>
+                
+                <div class="charts">
+                    <div class="chart-container">
+                        <h3>价格走势</h3>
+                        <canvas id="priceChart" class="chart"></canvas>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <h3>RSI指标</h3>
+                        <canvas id="rsiChart" class="chart"></canvas>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <h3>MACD指标</h3>
+                        <canvas id="macdChart" class="chart"></canvas>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <h3>布林带</h3>
+                        <canvas id="bbChart" class="chart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let priceChart, rsiChart, macdChart, bbChart;
+        
+        function setStock(symbol) {
+            document.getElementById('stockInput').value = symbol;
+            analyzeStock();
+        }
+        
+        function analyzeStock() {
+            const symbol = document.getElementById('stockInput').value.trim().toUpperCase();
+            if (!symbol) {
+                alert('请输入股票代码');
+                return;
+            }
+            
+            // 显示结果区域
+            const resultCard = document.getElementById('resultCard');
+            resultCard.style.display = 'block';
+            
+            // 显示加载中
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('error').style.display = 'none';
+            document.getElementById('analysisContent').style.display = 'none';
+            
+            // 发送请求
+            fetch('/api/analyze', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ symbol: symbol, period: '1mo' })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    throw new Error(data.error);
+                }
+                
+                // 隐藏加载中
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('analysisContent').style.display = 'block';
+                
+                // 更新标题
+                document.getElementById('stockTitle').textContent = `${symbol} 股票分析`;
+                
+                // 显示股票信息
+                displayStockInfo(data.analysis);
+                
+                // 绘制图表
+                drawCharts(data.chart_data);
+            })
+            .catch(error => {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('error').style.display = 'block';
+                document.getElementById('error').textContent = `错误: ${error.message}`;
+            });
+        }
+        
+        function displayStockInfo(analysis) {
+            const stockInfo = document.getElementById('stockInfo');
+            
+            // 格式化价格变化
+            const changeClass = analysis.price_change >= 0 ? 'positive' : 'negative';
+            const changeSign = analysis.price_change >= 0 ? '+' : '';
+            
+            stockInfo.innerHTML = `
+                <div class="info-item">
+                    <div class="info-label">当前价格</div>
+                    <div class="info-value">$${analysis.current_price.toFixed(2)}</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">价格变化</div>
+                    <div class="info-value ${changeClass}">
+                        ${changeSign}$${analysis.price_change.toFixed(2)} (${changeSign}${analysis.price_change_pct.toFixed(2)}%)
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">成交量</div>
+                    <div class="info-value">${analysis.volume.toLocaleString()}</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">趋势</div>
+                    <div class="info-value ${analysis.trend === '上涨' ? 'positive' : 'negative'}">
+                        ${analysis.trend}
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">MA趋势</div>
+                    <div class="info-value">${analysis.sma_trend}</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">RSI状态</div>
+                    <div class="info-value ${analysis.rsi_level === '超买' ? 'negative' : analysis.rsi_level === '超卖' ? 'positive' : ''}">
+                        ${analysis.rsi_level}
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">MACD信号</div>
+                    <div class="info-value ${analysis.macd_signal === '买入' ? 'positive' : 'negative'}">
+                        ${analysis.macd_signal}
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">分析时间</div>
+                    <div class="info-value">${analysis.timestamp}</div>
+                </div>
+            `;
+        }
+        
+        function drawCharts(chartData) {
+            // 销毁旧图表
+            if (priceChart) priceChart.destroy();
+            if (rsiChart) rsiChart.destroy();
+            if (macdChart) macdChart.destroy();
+            if (bbChart) bbChart.destroy();
+            
+            // 价格走势图
+            const priceCtx = document.getElementById('priceChart').getContext('2d');
+            priceChart = new Chart(priceCtx, {
+                type: 'line',
+                data: {
+                    labels: chartData.dates,
+                    datasets: [
+                        {
+                            label: '收盘价',
+                            data: chartData.prices,
+                            borderColor: '#667eea',
+                            backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                            borderWidth: 2,
+                            fill: true
+                        },
+                        {
+                            label: '10日MA',
+                            data: chartData.sma_10,
+                            borderColor: '#10b981',
+                            borderWidth: 1,
+                            borderDash: [5, 5]
+                        },
+                        {
+                            label: '30日MA',
+                            data: chartData.sma_30,
+                            borderColor: '#ef4444',
+                            borderWidth: 1,
+                            borderDash: [5, 5]
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        }
+                    }
+                }
+            });
+            
+            // RSI图表
+            const rsiCtx = document.getElementById('rsiChart').getContext('2d');
+            rsiChart = new Chart(rsiCtx, {
+                type: 'line',
+                data: {
+                    labels: chartData.dates,
+                    datasets: [{
+                        label: 'RSI',
+                        data: chartData.rsi,
+                        borderColor: '#f59e0b',
+                        backgroundColor: 'rgba(245, 158, 11, 0.1)',
+                        borderWidth: 2,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            min: 0,
+                            max: 100,
+                            ticks: {
+                                callback: function(value) {
+                                    if (value === 30) return '超卖';
+                                    if (value === 70) return '超买';
+                                    return value;
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        annotation: {
+                            annotations: {
+                                line1: {
+                                    type: 'line',
+                                    yMin: 30,
+                                    yMax: 30,
+                                    borderColor: '#10b981',
+                                    borderWidth: 2,
+                                    borderDash: [5, 5]
+                                },
+                                line2: {
+                                    type: 'line',
+                                    yMin: 70,
+                                    yMax: 70,
+                                    borderColor: '#ef4444',
+                                    borderWidth: 2,
+                                    borderDash: [5, 5]
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // MACD图表
+            const macdCtx = document.getElementById('macdChart').getContext('2d');
+            macdChart = new Chart(macdCtx, {
+                type: 'line',
+                data: {
+                    labels: chartData.dates,
+                    datasets: [
+                        {
+                            label: 'MACD',
+                            data: chartData.macd,
+                            borderColor: '#667eea',
+                            borderWidth: 2
+                        },
+                        {
+                            label: '信号线',
+                            data: chartData.macd_signal,
+                            borderColor: '#ef4444',
+                            borderWidth: 2
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        }
+                    }
+                }
+            });
+            
+            // 布林带图表
+            const bbCtx = document.getElementById('bbChart').getContext('2d');
+            bbChart = new Chart(bbCtx, {
+                type: 'line',
+                data: {
+                    labels: chartData.dates,
+                    datasets: [
+                        {
+                            label: '收盘价',
+                            data: chartData.prices,
+                            borderColor: '#667eea',
+                            backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                            borderWidth: 2,
+                            fill: false
+                        },
+                        {
+                            label: '布林上轨',
+                            data: chartData.bb_upper,
+                            borderColor: '#10b981',
+                            borderWidth: 1,
+                            borderDash: [5, 5]
+                        },
+                        {
+                            label: '布林下轨',
+                            data: chartData.bb_lower,
+                            borderColor: '#ef4444',
+                            borderWidth: 1,
+                            borderDash: [5, 5]
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        }
+                    }
+                }
+            });
+        }
+        
+        // 页面加载时自动分析AAPL
+        window.onload = function() {
+            analyzeStock();
+        };
+    </script>
+</body>
+</html>
