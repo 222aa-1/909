@@ -1,0 +1,389 @@
+{
+  "analysis_date": "2026-02-18T18:30:51.704934",
+  "summary": {
+    "total_products": {
+      "2024": 28,
+      "2025": 134,
+      "2026": 389
+    },
+    "feb_total": 551,
+    "comparison": [
+      {
+        "year": 2024,
+        "total": 28,
+        "priced": 0,
+        "avg_pur": 0,
+        "avg_sale": 270.48148148148147,
+        "avg_margin": 100.0
+      },
+      {
+        "year": 2025,
+        "total": 134,
+        "priced": 0,
+        "avg_pur": 0,
+        "avg_sale": 298.86567164179104,
+        "avg_margin": 100.0
+      },
+      {
+        "year": 2026,
+        "total": 389,
+        "priced": 0,
+        "avg_pur": 0,
+        "avg_sale": 321.95886889460155,
+        "avg_margin": 100.0
+      }
+    ]
+  },
+  "feb_2026_products_sample": [
+    {
+      "code": "2602180005",
+      "name": "挥订小白兔Open 风格G1143米杏L",
+      "created_date": "2026-02-18T16:22:41",
+      "pur_price": 0.0,
+      "sale_price": 129.0
+    },
+    {
+      "code": "2602180004",
+      "name": "挥订小白兔grvr外套012601咖棕均",
+      "created_date": "2026-02-18T16:20:50",
+      "pur_price": 0.0,
+      "sale_price": 599.0
+    },
+    {
+      "code": "2602180003",
+      "name": "挥订小白兔grvr短裙012602咖棕M",
+      "created_date": "2026-02-18T16:19:10",
+      "pur_price": 0.0,
+      "sale_price": 359.0
+    },
+    {
+      "code": "2602180002",
+      "name": "挥订孙芳芳M家短裙61238可可棕S码",
+      "created_date": "2026-02-18T12:50:37",
+      "pur_price": 0.0,
+      "sale_price": 359.0
+    },
+    {
+      "code": "2602180001",
+      "name": "挥订孙芳芳Ac风格1155长袖白色S",
+      "created_date": "2026-02-18T12:48:54",
+      "pur_price": 0.0,
+      "sale_price": 169.0
+    },
+    {
+      "code": "2602170017",
+      "name": "甜订王文婷6717银色均码",
+      "created_date": "2026-02-17T22:52:03",
+      "pur_price": 0.0,
+      "sale_price": 499.0
+    },
+    {
+      "code": "2602170016",
+      "name": "甜订王文婷6001黑色小",
+      "created_date": "2026-02-17T22:50:07",
+      "pur_price": 0.0,
+      "sale_price": 569.0
+    },
+    {
+      "code": "2602170015",
+      "name": "甜订小姐姐80271白色M码",
+      "created_date": "2026-02-17T22:48:39",
+      "pur_price": 0.0,
+      "sale_price": 239.0
+    },
+    {
+      "code": "2602170014",
+      "name": "甜订小姐姐6011704黑色M码",
+      "created_date": "2026-02-17T22:39:10",
+      "pur_price": 0.0,
+      "sale_price": 399.0
+    },
+    {
+      "code": "Cd521",
+      "name": "甜订黑爱心Cd521灰色M码",
+      "created_date": "2026-02-17T22:37:56",
+      "pur_price": 0.0,
+      "sale_price": 399.0
+    },
+    {
+      "code": "2602170013",
+      "name": "挥订魏小华Ac风格1155长袖白色M",
+      "created_date": "2026-02-17T20:27:19",
+      "pur_price": 0.0,
+      "sale_price": 169.0
+    },
+    {
+      "code": "2602170012",
+      "name": "甜订林霄香家风格羊毛围巾",
+      "created_date": "2026-02-17T19:38:23",
+      "pur_price": 0.0,
+      "sale_price": 279.0
+    },
+    {
+      "code": "2602170011",
+      "name": "甜订林霄6001黑色小码",
+      "created_date": "2026-02-17T19:36:54",
+      "pur_price": 0.0,
+      "sale_price": 569.0
+    },
+    {
+      "code": "2602170010",
+      "name": "冰订晴歌20128背带裤蓝色M码",
+      "created_date": "2026-02-17T19:33:21",
+      "pur_price": 0.0,
+      "sale_price": 569.0
+    },
+    {
+      "code": "2602170009",
+      "name": "冰订美荣荣20114外套蓝格S码",
+      "created_date": "2026-02-17T15:36:01",
+      "pur_price": 0.0,
+      "sale_price": 599.0
+    },
+    {
+      "code": "2602170008",
+      "name": "冰订美荣荣201012短裤蓝格M码",
+      "created_date": "2026-02-17T15:35:14",
+      "pur_price": 0.0,
+      "sale_price": 359.0
+    },
+    {
+      "code": "2602170007",
+      "name": "冰订美荣荣巴家1022078鞋银色36码",
+      "created_date": "2026-02-17T15:34:02",
+      "pur_price": 0.0,
+      "sale_price": 799.0
+    },
+    {
+      "code": "2602170006",
+      "name": "甜订肖肖6001迪家风格中号包",
+      "created_date": "2026-02-17T13:58:46",
+      "pur_price": 0.0,
+      "sale_price": 599.0
+    },
+    {
+      "code": "6001",
+      "name": "甜订紫莹6001黑色小",
+      "created_date": "2026-02-17T13:55:12",
+      "pur_price": 0.0,
+      "sale_price": 569.0
+    },
+    {
+      "code": "2602170005",
+      "name": "航订张80271长袖s码",
+      "created_date": "2026-02-17T13:53:41",
+      "pur_price": 0.0,
+      "sale_price": 239.0
+    },
+    {
+      "code": "2602170004",
+      "name": "航订grvr短裙012602m码",
+      "created_date": "2026-02-17T13:52:06",
+      "pur_price": 0.0,
+      "sale_price": 359.0
+    },
+    {
+      "code": "2602170003",
+      "name": "航订张grvr外套012601均码",
+      "created_date": "2026-02-17T13:51:31",
+      "pur_price": 0.0,
+      "sale_price": 599.0
+    },
+    {
+      "code": "2602170002",
+      "name": "航订张201012短裤m码",
+      "created_date": "2026-02-17T13:50:46",
+      "pur_price": 0.0,
+      "sale_price": 359.0
+    },
+    {
+      "code": "2602170001",
+      "name": "航订张20114外套s码",
+      "created_date": "2026-02-17T13:50:01",
+      "pur_price": 0.0,
+      "sale_price": 599.0
+    },
+    {
+      "code": "20114",
+      "name": "甜订黑爱心20114蓝格M码",
+      "created_date": "2026-02-17T00:23:26",
+      "pur_price": 0.0,
+      "sale_price": 599.0
+    },
+    {
+      "code": "201012",
+      "name": "甜甜订黑爱心201012蓝格M吗",
+      "created_date": "2026-02-17T00:21:06",
+      "pur_price": 0.0,
+      "sale_price": 359.0
+    },
+    {
+      "code": "Cc5212",
+      "name": "甜订黑爱心cc5211灰色M吗",
+      "created_date": "2026-02-17T00:18:46",
+      "pur_price": 0.0,
+      "sale_price": 369.0
+    },
+    {
+      "code": "2602160018",
+      "name": "淼订娇娇20114外套蓝格m码",
+      "created_date": "2026-02-16T20:49:54",
+      "pur_price": 0.0,
+      "sale_price": 599.0
+    },
+    {
+      "code": "2602160017",
+      "name": "淼订娇娇201012蓝格s码",
+      "created_date": "2026-02-16T20:49:05",
+      "pur_price": 0.0,
+      "sale_price": 359.0
+    },
+    {
+      "code": "2602160016",
+      "name": "淼订糊涂涂201012短裙蓝格L码一件",
+      "created_date": "2026-02-16T20:23:00",
+      "pur_price": 0.0,
+      "sale_price": 359.0
+    },
+    {
+      "code": "2602160015",
+      "name": "冰订白媛201012短裤蓝格L码",
+      "created_date": "2026-02-16T13:39:05",
+      "pur_price": 0.0,
+      "sale_price": 359.0
+    },
+    {
+      "code": "2602160014",
+      "name": "冰订白媛20114外套蓝格M码",
+      "created_date": "2026-02-16T13:38:18",
+      "pur_price": 0.0,
+      "sale_price": 599.0
+    },
+    {
+      "code": "2602160013",
+      "name": "冰订白媛1022078鞋银色38码",
+      "created_date": "2026-02-16T13:37:34",
+      "pur_price": 0.0,
+      "sale_price": 799.0
+    },
+    {
+      "code": "2602160012",
+      "name": "航订迪奥6001包",
+      "created_date": "2026-02-16T13:10:28",
+      "pur_price": 0.0,
+      "sale_price": 569.0
+    },
+    {
+      "code": "2602160011",
+      "name": "冰订双双80271长袖白色L码",
+      "created_date": "2026-02-16T13:09:06",
+      "pur_price": 0.0,
+      "sale_price": 239.0
+    },
+    {
+      "code": "2602160010",
+      "name": "挥订宋宋Ac风格1155长袖白色M",
+      "created_date": "2026-02-16T12:04:08",
+      "pur_price": 0.0,
+      "sale_price": 169.0
+    },
+    {
+      "code": "2602160009",
+      "name": "挥订宋宋AcG1154 短袖黑色S",
+      "created_date": "2026-02-16T12:02:45",
+      "pur_price": 0.0,
+      "sale_price": 139.0
+    },
+    {
+      "code": "2602160008",
+      "name": "挥订宋宋潮牌25193半裙浅米S码",
+      "created_date": "2026-02-16T12:01:11",
+      "pur_price": 0.0,
+      "sale_price": 369.0
+    },
+    {
+      "code": "马甲",
+      "name": "甜订爆米花马甲两排扣卡其均码",
+      "created_date": "2026-02-16T11:01:53",
+      "pur_price": 0.0,
+      "sale_price": 329.0
+    },
+    {
+      "code": "2602160007",
+      "name": "冰订10086小圆圈G1154白色M码",
+      "created_date": "2026-02-16T10:55:07",
+      "pur_price": 0.0,
+      "sale_price": 139.0
+    },
+    {
+      "code": "2602160006",
+      "name": "航订东方秀25193半裙m码",
+      "created_date": "2026-02-16T10:39:54",
+      "pur_price": 0.0,
+      "sale_price": 369.0
+    },
+    {
+      "code": "2602160005",
+      "name": "航订陈女士拉夫8008开衫m码",
+      "created_date": "2026-02-16T10:10:05",
+      "pur_price": 0.0,
+      "sale_price": 399.0
+    },
+    {
+      "code": "2602160004",
+      "name": "冰订吴茜20114外套蓝格S码",
+      "created_date": "2026-02-16T10:08:49",
+      "pur_price": 0.0,
+      "sale_price": 599.0
+    },
+    {
+      "code": "2602160003",
+      "name": "冰订吴茜8008羊毛开衫奶黄色S码",
+      "created_date": "2026-02-16T10:08:01",
+      "pur_price": 0.0,
+      "sale_price": 399.0
+    },
+    {
+      "code": "2602160002",
+      "name": "航订1154  白色短袖m码",
+      "created_date": "2026-02-16T10:06:27",
+      "pur_price": 0.0,
+      "sale_price": 139.0
+    },
+    {
+      "code": "2602160001",
+      "name": "冰订白媛8008羊毛开衫奶黄色M码",
+      "created_date": "2026-02-16T09:35:54",
+      "pur_price": 0.0,
+      "sale_price": 399.0
+    },
+    {
+      "code": "2602150002",
+      "name": "冰订秋雨25597长袖藏青条M码",
+      "created_date": "2026-02-15T16:40:40",
+      "pur_price": 0.0,
+      "sale_price": 159.0
+    },
+    {
+      "code": "2602150001",
+      "name": "冰订秋雨101801外套灰色均码",
+      "created_date": "2026-02-15T16:39:44",
+      "pur_price": 0.0,
+      "sale_price": 299.0
+    },
+    {
+      "code": "6717",
+      "name": "甜订丁丁6717银色迷你版",
+      "created_date": "2026-02-14T23:07:39",
+      "pur_price": 0.0,
+      "sale_price": 499.0
+    },
+    {
+      "code": "2602130005",
+      "name": "航订张玮雪1154ac短袖白色L",
+      "created_date": "2026-02-13T17:42:31",
+      "pur_price": 0.0,
+      "sale_price": 139.0
+    }
+  ]
+}

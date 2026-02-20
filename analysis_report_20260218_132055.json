@@ -1,0 +1,37 @@
+{
+  "timestamp": "2026-02-18T13:20:55.588436",
+  "stocks_analyzed": 1,
+  "results": [
+    {
+      "symbol": "300809",
+      "analysis_date": "2026-02-18 13:20:55",
+      "data_period": "2024-01-02 到 2026-02-13",
+      "total_days": 515,
+      "analysis_results": {
+        "trend": {
+          "current_price": 38.4,
+          "trend_short": "下跌",
+          "trend_medium": "下跌",
+          "trend_long": "上涨",
+          "ma_alignment": "震荡排列",
+          "rsi_status": "中性",
+          "macd_signal": "死叉"
+        },
+        "volatility": {
+          "volatility_20d": 39.35757969244268,
+          "volatility_60d": 38.94176114862692,
+          "volatility_120d": 42.811869534940364,
+          "max_drawdown": 42.30838593327323,
+          "sharpe_ratio": 0.4483153896453467
+        },
+        "support_resistance": {
+          "support_level": 33.15,
+          "resistance_level": 42.71,
+          "current_to_support": 15.837104072398201,
+          "current_to_resistance": 11.22395833333334,
+          "bb_position": "中轨附近"
+        },
+        "seasonality": {
+          "period_return": -19.652358992550557,
+          "avg_daily_return": -0.1796183606227512,
+          "positive_days": 

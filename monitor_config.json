@@ -1,0 +1,12 @@
+{
+  "stocks": [
+    {
+      "symbol": "300809",
+      "name": "华辰装备",
+      "alert_threshold": 5.0
+    }
+  ],
+  "analysis_interval": 60,
+  "alert_channels": ["console"],
+  "analysis_history_days": 30
+}

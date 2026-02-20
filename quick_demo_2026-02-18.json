@@ -1,0 +1,58 @@
+{
+  "demo_date": "2026-02-18",
+  "generated_at": "2026-02-18T18:18:34.656330",
+  "sales_data": {
+    "total_amount": 8560.5,
+    "order_count": 32,
+    "customer_count": 28,
+    "products": [
+      {
+        "name": "灰色字母加绒卫衣",
+        "quantity": 8,
+        "amount": 1272.0
+      },
+      {
+        "name": "北面羽绒裤",
+        "quantity": 5,
+        "amount": 1345.0
+      },
+      {
+        "name": "预订小衫",
+        "quantity": 12,
+        "amount": 828.0
+      },
+      {
+        "name": "紫色加绒连帽卫衣",
+        "quantity": 6,
+        "amount": 1194.0
+      },
+      {
+        "name": "防风裤时尚松紧",
+        "quantity": 4,
+        "amount": 716.0
+      }
+    ]
+  },
+  "analysis": {
+    "total_amount": 8560.5,
+    "order_count": 32,
+    "avg_order_value": 267.515625,
+    "top_products": [
+      {
+        "name": "北面羽绒裤",
+        "quantity": 5,
+        "amount": 1345.0
+      },
+      {
+        "name": "灰色字母加绒卫衣",
+        "quantity": 8,
+        "amount": 1272.0
+      },
+      {
+        "name": "紫色加绒连帽卫衣",
+        "quantity": 6,
+        "amount": 1194.0
+      }
+    ]
+  }
+}
