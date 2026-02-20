@@ -1,0 +1,23 @@
+# 提交类型: feat|fix|docs|style|refactor|test|chore
+
+# 主题行: 类型(范围): 简要描述
+# 例如: feat(analysis): 添加小红书趋势分析
+
+# 详细描述（可选）:
+# - 做了什么
+# - 为什么做
+# - 如何测试
+
+# 关联任务（可选）:
+# Fixes #123
+# See also #456
+
+# --- 提交说明结束 ---
+# 类型说明:
+#   feat:     新功能
+#   fix:      修复bug
+#   docs:     文档更新
+#   style:    代码格式调整
+#   refactor: 代码重构
+#   test:     测试相关
+#   chore:    构建过程或辅助工具变动
